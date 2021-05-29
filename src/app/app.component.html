@@ -1,11 +1,12 @@
 <style>
-  h1,
+ h1,
   h2,
   h3,
   h4,
   h5,
   h6 {
     margin: 8px 0;
+    text-align: center;
   }
 
   p {
@@ -176,6 +177,10 @@
   }
 </style>
 
+
+  <h1 style="padding-top:10%;" class="total">My ToDo's</h1>
+
+
 <div class="content" role="main">
   <!-- Highlight Card -->
   <!-- <div class="card highlight-card card-small">
@@ -217,84 +222,87 @@
 <!-- <div class="d-flex justify-content-center total">
   <h1>ToDo List</h1>
 </div> -->
-<div class=" total container row">
 
-  <div class="col-sm-6">
-    <h2>
-     
+
+<div *ngIf="totaltasks > 0 || totaldone > 0">
+  <div class="total container row">
+    <div class="col-sm-6">
+      <h2>
         Pending: {{ totaltasks }}
-        <br>
-        <div *ngIf="totaltasks>0">
-        <button class="btn btn-danger" (click)="deletePending()">Delete all Tasks</button></div>
-    </h2>
+        <br />
+        <div *ngIf="totaltasks > 0">
+          <button class="btn btn-danger" (click)="deletePending()">
+            Delete all Tasks
+          </button>
+        </div>
+      </h2>
 
-    <div *ngFor="let item of data" >
-      <!-- {{ item }}
+      <div *ngFor="let item of data">
+        <!-- {{ item }}
       <button (click)="reomvetask(item)" class="w3-btn w3-black">
         Delete
       </button> -->
-      <!-- <div class="modal-body">
+        <!-- <div class="modal-body">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
         <p> {{ item }}</p>
       </div> -->
 
-      <div class="panel panel-default">
-        <div class="panel-heading justify-content-center">
-          <span>
-            {{ item }}
-            <button
-              type="button"
-              (click)="reomvetask(item)"
-              style="color: red"
-              class="close"
-              data-dismiss="modal"
-            >
-              <span
-                aria-hidden="true"
-                title="make it as complete"
-                style="font-size: 24px"
-                >&times;</span
+        <div class="panel panel-default">
+          <div class="panel-heading justify-content-center">
+            <span>
+              {{ item }}
+              <button
+                type="button"
+                (click)="reomvetask(item)"
+                style="color: red"
+                class="close"
+                data-dismiss="modal"
               >
-            </button></span
-          >
+                <span
+                  aria-hidden="true"
+                  title="make it as complete"
+                  style="font-size: 24px"
+                  >&times;</span
+                >
+              </button></span
+            >
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class=" total col-sm-6">
-    <!-- <h1>ToDo Tasks Completed: {{totaldone}}</h1> -->
-    <h2>
-      
-        Completed: {{ totaldone }}<br>
-        <div *ngIf="totaldone>0">
-        <button class="btn btn-success" (click)="deleteCompleted()">
-          Delete all Completed Tasks
-        </button>
+    <div class="total col-sm-6">
+      <!-- <h1>ToDo Tasks Completed: {{totaldone}}</h1> -->
+      <h2>
+        Completed: {{ totaldone }}<br />
+        <div *ngIf="totaldone > 0">
+          <button class="btn btn-success" (click)="deleteCompleted()">
+            Delete all Completed Tasks
+          </button>
         </div>
-    </h2>
-    <div *ngFor="let item of done">
-      <!-- {{ item }}
+      </h2>
+      <div *ngFor="let item of done">
+        <!-- {{ item }}
       <button (click)="reomvetask(item)" class="w3-btn w3-black">
         Delete
       </button> -->
-      <!-- <div class="modal-body">
+        <!-- <div class="modal-body">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
         <p> {{ item }}</p>
       </div> -->
 
-      <div class="panel panel-default">
-        <span>
-          <div
-            class="panel-heading"
-            style="text-decoration: line-through black"
-          >
-            <p>
-              {{ item }}
-            </p>
-          </div>
-        </span>
+        <div class="panel panel-default">
+          <span>
+            <div
+              class="panel-heading"
+              style="text-decoration: line-through black"
+            >
+              <p>
+                {{ item }}
+              </p>
+            </div>
+          </span>
+        </div>
       </div>
     </div>
   </div>
 </div>
-
