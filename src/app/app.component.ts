@@ -12,11 +12,13 @@ export class AppComponent {
   localTodoList: any;
   data = [];
   done = [];
+  totaltasks =0;
+  totaldone =0;
   // todoTask;
   // todoTask
   ngOnInit() {
 
-
+    
     if (localStorage.getItem("todotasksCompleted") === undefined) {
       localStorage.setItem('todotasksCompleted',"[]")
     }
@@ -24,7 +26,11 @@ export class AppComponent {
       localStorage.setItem('todotasksCompleted',"[]")
     }
     this.data = JSON.parse(localStorage.getItem('todotasks'))
+    this.totaltasks =this.data.length
+    
+    // alert(this.totaltasks)
     this.done = JSON.parse(localStorage.getItem('todotasksCompleted'))
+    this.totaldone =this.done.length
 
     // this.data = this.data ? this.data.split(',') : [];
 
@@ -58,6 +64,8 @@ export class AppComponent {
       console.log(this.data);
 
     }
+    this.totaltasks =this.data.length
+    this.totaldone =this.done.length
 
   }
   reomvetask(e: String) {
@@ -72,7 +80,7 @@ export class AppComponent {
     }
     this.data = this.data.filter(function (el) { return el != e; });
     localStorage.setItem('todotasks', JSON.stringify(this.data));
-
+    this.totaltasks =this.data.length
     this.done = JSON.parse(localStorage.getItem('todotasksCompleted'))
     if(this.done==null){
       this.done=[]
@@ -88,6 +96,7 @@ export class AppComponent {
     this.done.push(e)
     localStorage.setItem('todotasksCompleted', JSON.stringify(this.done));
     console.log(this.done);
+    this.totaldone =this.done.length
     //  break;
 
     //   console.log(this.data)
@@ -102,6 +111,17 @@ export class AppComponent {
     //   console.log(this.done);
   }
 
+
+  deleteCompleted(){
+    localStorage.removeItem("todotasksCompleted")
+    this.done = []
+  this.totaldone =0;
+  }
+  deletePending(){
+    localStorage.removeItem("todotasks")
+    this.data = []
+    this.totaltasks =0;
+  }
   // doneTask(e) {
   //   alert(e)
 

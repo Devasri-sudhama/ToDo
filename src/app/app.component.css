@@ -3,7 +3,7 @@
     display:flex;
     position:realtive;
     margin:5em auto;
-    width:500px;
+    /* width:500px; */
     flex-direction:row;
     -moz-box-shadow:    0px 0px 2px 0px rgba(0,0,0,0.2);
     -webkit-box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.2);
@@ -19,9 +19,9 @@
   .field>input[type=text] {
     flex:1;
     padding:0.6em;
-    border:0.2em solid #819090;
-    border-left: none;
-    border-top: none;
+    /* border:0.2em solid #819090; */
+    /* border-left: none;
+    border-top: none; */
   }
   
   .field>button {
@@ -29,7 +29,7 @@
     padding:0.6em 0.8em;
     background-color: #819090;
     color: #fff;
-    border:none;
+    /* border:none; */
   }
 
 
@@ -52,15 +52,27 @@ h3 {
   clear: both;
 }
 .parent {
-  background: mediumpurple;
+  /* background: rgb(255, 255, 255); */
   padding: 1rem
 }
 .child {
-  border: 1px solid indigo;
-  padding: 1rem
+  /* border: 1px solid rgb(0, 0, 0); */
+  padding: 2px
 }
 
 .grid-parent {
   display: grid;
   grid-template-columns: 1fr 1fr
 }  
+
+.total{
+  color: #fff;
+  
+}
+
+button{
+  color: rgb(0, 0, 0);
+}
+p{
+  color: black;
+}
