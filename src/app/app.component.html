@@ -190,7 +190,7 @@
   <!-- <input #phone placeholder="phone number" />
 
   <input type="button" value="Call" (click)="callPhone(phone.value)" /> -->
-  <div class="field container" id="searchform">
+  <div class="field" id="searchform">
     <!-- <form (submit)="onSubmit(player.value)">
       <input #player placeholder="player name">
    </form> -->
@@ -200,6 +200,7 @@
       id="searchterm"
       value=""
       name="todoTask"
+      style="width:-webkit-fill-available"
       placeholder="ToDO Task"
       [(ngModel)]="todoTask"
       (keyup.enter)="addToDo(todoTask)"

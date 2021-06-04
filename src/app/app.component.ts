@@ -51,13 +51,14 @@ export class AppComponent {
   addToDo(todolist: String) {
     if (todolist != "") {
       console.log(this.data)
+      this.data = JSON.parse(localStorage.getItem("todotasks"))
       if(this.data==null){
         this.data=[]
         localStorage.setItem('todotasks', JSON.stringify(this.data));
       }
       this.todoTask = ""
 
-      this.data = JSON.parse(localStorage.getItem("todotasks"))
+     
       // alert(this.data)
       this.data.push(todolist.trim())
       localStorage.setItem('todotasks', JSON.stringify(this.data));
